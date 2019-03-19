@@ -4,6 +4,7 @@ import java8_stream.bean.Dish;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -29,5 +30,11 @@ public class menu {
                 .collect(toList());
 
         System.out.println(threeHighCaloricDishNames);
+
+        List<String> title = Arrays.asList("1", "s", "asd");
+        Stream<String> s = title.stream();
+        s.forEach(System.out::println);
+        //s.forEach(System.out::println);
+
     }
 }
