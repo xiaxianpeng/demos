@@ -5,6 +5,7 @@ import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -98,6 +99,10 @@ public class StreamDemo
         isHealthy = menu.stream().noneMatch(dish -> dish.getCalories()>=1000);
         System.out.println(isHealthy);
 
-
+        Optional<Dish> dish = menu
+                .stream()
+                .filter(Dish::isVegetarian)
+                .findAny();
+        System.out.println(dish);
     }
 }
