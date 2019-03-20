@@ -49,5 +49,19 @@ public class menu {
                 .collect(toList());
         System.out.println(dishNameLengths);
 
+
+        String[] words = {"hello","world"};
+        Stream<String> wordsStream  = Arrays.stream(words);
+
+        List<String> uniqueCharacters = title
+                .stream()
+                .map(w->w.split(""))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .collect(toList());
+        System.out.println(uniqueCharacters);
+
+
+
     }
 }
