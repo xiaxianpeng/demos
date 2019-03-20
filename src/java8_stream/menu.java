@@ -77,9 +77,13 @@ public class menu {
                 .stream()
                 .flatMap(i-> numbers2
                         .stream()
+                        .filter(j->(i+j)%3==0)
                         .map(j->new int[]{i,j}))
                 .collect(toList());
 
+        for (int[] pair : pairs) {
+            System.out.println("("+pair[0]+","+pair[1]+")");
+        }
 
 
 
