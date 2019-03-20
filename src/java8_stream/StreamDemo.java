@@ -121,6 +121,9 @@ public class StreamDemo {
         int sum = someNumbers
                 .stream()
                 .reduce(0, (a, b) -> a + b);
-        System.out.println(sum);
+
+        int sum1 = someNumbers.stream().reduce(0, Integer::sum);
+        Optional<Integer> sum2 = someNumbers.stream().reduce(Integer::sum);
+        System.out.println(sum2);
     }
 }
