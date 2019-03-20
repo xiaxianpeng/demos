@@ -104,5 +104,10 @@ public class StreamDemo
                 .filter(Dish::isVegetarian)
                 .findAny();
         System.out.println(dish);
+
+        menu.stream()
+                .filter(Dish::isVegetarian)
+                .findAny()
+                .ifPresent(d -> System.out.println(d.getName()));
     }
 }
