@@ -118,6 +118,9 @@ public class StreamDemo {
                 .findFirst();
         System.out.println(fitstNumber);
 
-
+        int sum = someNumbers
+                .stream()
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
     }
 }
