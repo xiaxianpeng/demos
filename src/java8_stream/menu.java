@@ -36,5 +36,12 @@ public class menu {
         s.forEach(System.out::println);
         //s.forEach(System.out::println);
 
+        List<Dish> dishes = menu.stream()
+        .filter(dish -> dish.getCalories()>300)
+        .skip(2)
+        .collect(toList());
+
+        System.out.println(dishes);
+
     }
 }

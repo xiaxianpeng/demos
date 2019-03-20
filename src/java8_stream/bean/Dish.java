@@ -37,4 +37,9 @@ public class Dish {
     public enum Type {
         MEAT,FISH,OTHER
     }
+
+    @Override
+    public String toString() {
+        return  name ;
+    }
 }
