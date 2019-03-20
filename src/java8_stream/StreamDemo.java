@@ -9,7 +9,8 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class menu {
+public class StreamDemo
+{
     public static void main(String[] args) {
         List<Dish> menu = Arrays.asList(
                 new Dish("pork", false, 800, Dish.Type.MEAT),
@@ -87,5 +88,8 @@ public class menu {
 
 
 
+        if(menu.stream().anyMatch(Dish::isVegetarian)){
+            System.out.println("has vegetarian");
+        }
     }
 }
