@@ -1,6 +1,7 @@
 package java8_stream;
 
 import java8_stream.bean.Dish;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Arrays;
 import java.util.List;
@@ -60,6 +61,25 @@ public class menu {
                 .distinct()
                 .collect(toList());
         System.out.println(uniqueCharacters);
+
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+        List<Integer> sqares = numbers
+                .stream()
+                .map(n->n*n)
+                .collect(toList());
+        System.out.println(sqares);
+
+
+        List<Integer> numbers1 = Arrays.asList(1,2,3);
+        List<Integer> numbers2 =  Arrays.asList(4,5);
+
+        List<int[]> pairs = numbers1
+                .stream()
+                .flatMap(i-> numbers2
+                        .stream()
+                        .map(j->new int[]{i,j}))
+                .collect(toList());
+
 
 
 
