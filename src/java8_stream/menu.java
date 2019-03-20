@@ -43,5 +43,11 @@ public class menu {
 
         System.out.println(dishes);
 
+        List<Integer> dishNameLengths = menu.stream()
+                .map(Dish::getName)
+                .map(String::length)
+                .collect(toList());
+        System.out.println(dishNameLengths);
+
     }
 }
