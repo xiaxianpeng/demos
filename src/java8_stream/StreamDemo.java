@@ -1,6 +1,7 @@
 package java8_stream;
 
 import java8_stream.bean.Dish;
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Arrays;
@@ -109,5 +110,14 @@ public class StreamDemo
                 .filter(Dish::isVegetarian)
                 .findAny()
                 .ifPresent(d -> System.out.println(d.getName()));
+
+
+        List<Integer> someNumbers = Arrays.asList(1,2,3,4,5);
+        Optional<Integer> fitstNumber = someNumbers
+                .stream()
+                .map(x->x*x)
+                .filter(x->x%3==0)
+                .findFirst();
+        System.out.println(fitstNumber);
     }
 }
