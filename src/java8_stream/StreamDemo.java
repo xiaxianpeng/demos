@@ -91,5 +91,13 @@ public class StreamDemo
         if(menu.stream().anyMatch(Dish::isVegetarian)){
             System.out.println("has vegetarian");
         }
+
+        boolean isHealthy = menu.stream().allMatch(dish -> dish.getCalories()<1000);
+        System.out.println(isHealthy);
+
+        isHealthy = menu.stream().noneMatch(dish -> dish.getCalories()>=1000);
+        System.out.println(isHealthy);
+
+
     }
 }
