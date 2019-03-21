@@ -125,5 +125,9 @@ public class StreamDemo {
         int sum1 = someNumbers.stream().reduce(0, Integer::sum);
         Optional<Integer> sum2 = someNumbers.stream().reduce(Integer::sum);
         System.out.println(sum2);
+
+
+        Optional<Integer> max = someNumbers.stream().reduce(Integer::max);
+        System.out.println("max: "+max);
     }
 }
