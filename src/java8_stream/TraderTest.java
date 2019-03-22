@@ -50,5 +50,12 @@ public class TraderTest {
                 .sorted(Comparator.comparing(trader -> trader.getName()))
                 .collect(Collectors.toList());
         System.out.println(traders.toString());
+
+        String names = transactions.stream()
+                .map(transaction -> transaction.getTrader().getName())
+                .distinct()
+                .sorted()
+                .reduce("", (a, b) -> a + b);
+        System.out.println(names);
     }
 }
