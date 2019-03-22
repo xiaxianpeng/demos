@@ -30,7 +30,11 @@ public class TraderTest {
                 .collect(Collectors.toList());
         System.out.println(tr2011);
 
-
+        List<String> citys = transactions.stream()
+                .map(transaction -> transaction.getTrader().getCity())
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(citys.toString());
 
     }
 }
