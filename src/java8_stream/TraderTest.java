@@ -57,5 +57,14 @@ public class TraderTest {
                 .sorted()
                 .reduce("", (a, b) -> a + b);
         System.out.println(names);
+
+        String traderStr = transactions.stream()
+                .map(transaction -> transaction.getTrader().getName())
+                .distinct()
+                .sorted()
+                .collect(Collectors.joining());
+        System.out.println(traderStr);
+
+
     }
 }
