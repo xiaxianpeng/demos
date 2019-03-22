@@ -26,7 +26,7 @@ public class TraderTest {
         );
 
         List<Transaction> tr2011 = transactions.stream()
-                .filter(transaction -> transaction.getYear()==2011)
+                .filter(transaction -> transaction.getYear() == 2011)
                 .sorted(Comparator.comparing(Transaction::getValue))
                 .collect(Collectors.toList());
         System.out.println(tr2011);
@@ -43,5 +43,12 @@ public class TraderTest {
                 .collect(Collectors.toSet());
         System.out.println(city2.toString());
 
+        List<Trader> traders = transactions.stream()
+                .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
+                .map(Transaction::getTrader)
+                .distinct()
+                .sorted(Comparator.comparing(trader -> trader.getName()))
+                .collect(Collectors.toList());
+        System.out.println(traders.toString());
     }
 }
