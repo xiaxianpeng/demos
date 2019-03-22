@@ -6,6 +6,7 @@ import java8_stream.bean.Transaction;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class TraderTest {
@@ -35,6 +36,12 @@ public class TraderTest {
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(citys.toString());
+
+
+        Set<String> city2 = transactions.stream()
+                .map(transaction -> transaction.getTrader().getCity())
+                .collect(Collectors.toSet());
+        System.out.println(city2.toString());
 
     }
 }
