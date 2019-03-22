@@ -69,5 +69,10 @@ public class TraderTest {
                 .anyMatch(transaction -> transaction.getTrader().getCity().equals("Milan"));
         System.out.println(ifWorkOnMilan);
 
+        transactions.stream()
+                .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
+                .map(Transaction::getValue)
+                .forEach(System.out::println);
+
     }
 }
