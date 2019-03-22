@@ -65,6 +65,9 @@ public class TraderTest {
                 .collect(Collectors.joining());
         System.out.println(traderStr);
 
+        boolean ifWorkOnMilan = transactions.stream()
+                .anyMatch(transaction -> transaction.getTrader().getCity().equals("Milan"));
+        System.out.println(ifWorkOnMilan);
 
     }
 }
