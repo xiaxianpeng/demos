@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a0ddee0-653a-4832-b793-2bd1ea5e2c2c" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java8_stream/TraderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java8_stream/TraderTest.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/java8_stream/menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java8_stream/menu.java" afterDir="false" />
+>>>>>>> 018fdc5... 流只能使用一次
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +56,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java8_stream/StreamDemo.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="333">
               <caret line="135" column="45" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="45" />
+=======
+            <state relative-caret-position="671">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+>>>>>>> 018fdc5... 流只能使用一次
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,11 +124,14 @@
         <option value="$PROJECT_DIR$/src/java8_stream/menus.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/bean/Dish.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/menu.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/java8_stream/Stream.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/StreamDemo.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/bean/Trader.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/bean/Transaction.java" />
         <option value="$PROJECT_DIR$/src/java8_stream/TraderTest.java" />
+=======
+>>>>>>> 018fdc5... 流只能使用一次
       </list>
     </option>
   </component>
@@ -170,7 +182,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553267377410" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552957451059" />
+>>>>>>> 018fdc5... 流只能使用一次
     <property name="create.test.in.the.same.root" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -240,12 +256,20 @@
       <workItem from="1552492161091" duration="83000" />
       <workItem from="1552492256993" duration="728000" />
       <workItem from="1552659316290" duration="325000" />
+<<<<<<< HEAD
       <workItem from="1552953816938" duration="15072000" />
+=======
+      <workItem from="1552953816938" duration="2886000" />
+>>>>>>> 018fdc5... 流只能使用一次
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="25363000" />
+=======
+    <option name="totallyTimeSpent" value="13177000" />
+>>>>>>> 018fdc5... 流只能使用一次
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="964" extended-state="0" />
@@ -258,16 +282,28 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Messages" weight="0.32912844" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20183486" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39908257" />
+=======
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32912844" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+>>>>>>> 018fdc5... 流只能使用一次
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3956422" />
+=======
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.30619267" />
+>>>>>>> 018fdc5... 流只能使用一次
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.498779" weight="0.19495413" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.501221" side_tool="true" weight="0.32912844" />
@@ -455,8 +491,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java8_stream/TraderTest.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="550">
           <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+=======
+        <state relative-caret-position="671">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+>>>>>>> 018fdc5... 流只能使用一次
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
