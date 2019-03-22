@@ -3,10 +3,7 @@ package java8_stream;
 import java8_stream.bean.Trader;
 import java8_stream.bean.Transaction;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TraderTest {
@@ -73,6 +70,10 @@ public class TraderTest {
                 .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
                 .map(Transaction::getValue)
                 .forEach(System.out::println);
+        Optional<Integer> maxValue = transactions.stream()
+                .map(transaction -> transaction.getValue())
+                .reduce(Integer::max);
+        System.out.println("max : " + maxValue);
 
     }
 }
