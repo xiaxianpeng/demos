@@ -128,6 +128,9 @@ public class StreamDemo {
 
 
         Optional<Integer> max = someNumbers.stream().reduce(Integer::max);
-        System.out.println("max: "+max);
+        System.out.println("max: " + max);
+
+        Long count = menu.stream().count();
+        System.out.println("count" + count);
     }
 }
