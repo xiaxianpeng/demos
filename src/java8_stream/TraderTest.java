@@ -75,5 +75,10 @@ public class TraderTest {
                 .reduce(Integer::max);
         System.out.println("max : " + maxValue);
 
+        Optional<Transaction> minValue = transactions.stream()
+                .reduce((t1, t2) -> t1.getValue() < t2.getValue() ? t1 : t2
+                );
+        System.out.println(minValue);
+
     }
 }
