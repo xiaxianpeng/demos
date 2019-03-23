@@ -146,5 +146,8 @@ public class StreamDemo {
                 .filter(n -> n % 2 == 0);
         System.out.println(evenNumbers.count());
 
+        IntStream evenNumbers2 = IntStream.range(1, 100)
+                .filter(n -> n % 2 == 0);
+        System.out.println(evenNumbers2.count());
     }
 }
