@@ -7,6 +7,7 @@ import org.omg.PortableInterceptor.INACTIVE;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -139,6 +140,11 @@ public class StreamDemo {
         int calories = menu.stream()
                 .mapToInt(Dish::getCalories)
                 .sum();
-        System.out.println("calories = "+calories);
+        System.out.println("calories = " + calories);
+
+        IntStream evenNumbers = IntStream.rangeClosed(1, 100)
+                .filter(n -> n % 2 == 0);
+        System.out.println(evenNumbers.count());
+
     }
 }
