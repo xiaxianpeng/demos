@@ -78,7 +78,9 @@ public class TraderTest {
         Optional<Transaction> minValue = transactions.stream()
                 .reduce((t1, t2) -> t1.getValue() < t2.getValue() ? t1 : t2
                 );
-        System.out.println(minValue);
+        Optional<Transaction> minVal = transactions.stream()
+                .min(Comparator.comparing(Transaction::getValue));
+        System.out.println(minVal);
 
     }
 }
