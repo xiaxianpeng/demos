@@ -201,5 +201,11 @@ public class StreamDemo {
                 .limit(20)
                 .map(t -> t[0])
                 .forEach(System.out::println);
+
+        Stream.generate(Math::random)
+                .limit(5)
+                .forEach(System.out::printlngaa);
+
+
     }
 }
