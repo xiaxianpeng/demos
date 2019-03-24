@@ -204,7 +204,7 @@ public class StreamDemo {
 
         Stream.generate(Math::random)
                 .limit(5)
-                .forEach(System.out::printlngaa);
+                .forEach(System.out::println);
 
 
     }
