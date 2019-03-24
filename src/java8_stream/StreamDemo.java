@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -206,6 +207,10 @@ public class StreamDemo {
                 .limit(5)
                 .forEach(System.out::println);
 
+        long howManyDishes = menu.stream().collect(Collectors.counting());
+        System.out.println("howManyDishes " + howManyDishes);
+        long howManyDishes1 = menu.stream().count();
+        System.out.println("howManyDishes " + howManyDishes1);
 
     }
 }
