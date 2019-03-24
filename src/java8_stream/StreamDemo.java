@@ -1,8 +1,6 @@
 package java8_stream;
 
 import java8_stream.bean.Dish;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Arrays;
 import java.util.List;
@@ -149,5 +147,17 @@ public class StreamDemo {
         IntStream evenNumbers2 = IntStream.range(1, 100)
                 .filter(n -> n % 2 == 0);
         System.out.println(evenNumbers2.count());
+
+
+        Stream<int[]> pythagoreanTriples = IntStream.rangeClosed(1, 100).boxed()
+                .flatMap(a ->
+                        IntStream.rangeClosed(a, 100)
+                                .filter(b -> Math.sqrt(a * a + b * b) % 1 == 0)
+                                .mapToObj(b -> new int[]{a, b, (int) Math.sqrt(a * a + b * b)}));
+
+        pythagoreanTriples.limit(5)
+                .forEach(t -> System.out.println(t[0] + "," + t[1] + "," + t[2]));
+
+
     }
 }
