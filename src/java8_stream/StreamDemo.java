@@ -2,6 +2,11 @@ package java8_stream;
 
 import java8_stream.bean.Dish;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -170,10 +175,18 @@ public class StreamDemo {
 
         Stream<String> emptyStream = Stream.empty();
 
-        int[] number = {2,34,5,32,45,96};
+        int[] number = {2, 34, 5, 32, 45, 96};
         int numberSum = Arrays.stream(number).sum();
         System.out.println(numberSum);
 
-
+        long uniqueWord = 0;
+        try (Stream<String> lines = Files.lines(Paths.get("src/java8_stream/TraderTest.java"), Charset.defaultCharset())) {
+            uniqueWord = lines.flatMap(line -> Arrays.stream(line.split("")))
+                    .distinct()
+                    .count();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("uniqueWord size : " + uniqueWord);
     }
 }
