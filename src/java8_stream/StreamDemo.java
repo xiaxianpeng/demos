@@ -8,12 +8,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.maxBy;
 import static java.util.stream.Collectors.toList;
 
 public class StreamDemo {
@@ -211,6 +213,11 @@ public class StreamDemo {
         System.out.println("howManyDishes " + howManyDishes);
         long howManyDishes1 = menu.stream().count();
         System.out.println("howManyDishes " + howManyDishes1);
+
+        Comparator<Dish>  dishCaloriedComparator = Comparator.comparingInt(Dish::getCalories);
+        Optional<Dish>  mostCalorieDish = menu.stream()
+                .collect(maxBy(dishCaloriedComparator));
+        System.out.println("mostCalorieDish "+mostCalorieDish.toString());
 
     }
 }
