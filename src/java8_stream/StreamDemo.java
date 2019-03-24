@@ -165,5 +165,15 @@ public class StreamDemo {
                 .forEach(t -> System.out.println(t[0] + "," + t[1] + "," + t[2]));
 
 
+        Stream<String> stream = Stream.of("a", "b", "c", "d");
+        stream.map(String::toUpperCase).forEach(System.out::println);
+
+        Stream<String> emptyStream = Stream.empty();
+
+        int[] number = {2,34,5,32,45,96};
+        int numberSum = Arrays.stream(number).sum();
+        System.out.println(numberSum);
+
+
     }
 }
