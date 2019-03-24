@@ -149,13 +149,19 @@ public class StreamDemo {
         System.out.println(evenNumbers2.count());
 
 
-        Stream<int[]> pythagoreanTriples = IntStream.rangeClosed(1, 100).boxed()
-                .flatMap(a ->
-                        IntStream.rangeClosed(a, 100)
-                                .filter(b -> Math.sqrt(a * a + b * b) % 1 == 0)
-                                .mapToObj(b -> new int[]{a, b, (int) Math.sqrt(a * a + b * b)}));
+//        Stream<int[]> pythagoreanTriples = IntStream.rangeClosed(1, 100).boxed()
+//                .flatMap(a ->
+//                        IntStream.rangeClosed(a, 100)
+//                                .filter(b -> Math.sqrt(a * a + b * b) % 1 == 0)
+//                                .mapToObj(b -> new int[]{a, b, (int) Math.sqrt(a * a + b * b)}));
+        Stream<double[]> pythagoreanTriples = IntStream.rangeClosed(1, 100).boxed()
+                .flatMap(a -> IntStream.rangeClosed(a, 100)
+                        .mapToObj(b -> new double[]{a, b, Math.sqrt(a * a + b * b)}))
+                .filter(t -> Math.sqrt(t[0] * t[0] + t[1] * t[1]) % 1 == 0)
+                .limit(5);
 
-        pythagoreanTriples.limit(5)
+
+        pythagoreanTriples
                 .forEach(t -> System.out.println(t[0] + "," + t[1] + "," + t[2]));
 
 
