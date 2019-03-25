@@ -134,6 +134,6 @@ public class StreamDemo {
         System.out.println("count" + count);
 
         int sum3 = someNumbers.parallelStream().reduce(0,Integer::sum);
-        System.out.println("sum " +sum2);
+        System.out.println("sum2 " +sum2);
     }
 }
