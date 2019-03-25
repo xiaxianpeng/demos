@@ -228,5 +228,8 @@ public class StreamDemo {
                 .collect(Collectors.summarizingInt(Dish::getCalories));
         System.out.println(summaryStatistics);
 
+        String shortMenu = menu.stream().map(Dish::getName).collect(Collectors.joining(", "));
+        System.out.println(shortMenu);
+
     }
 }
