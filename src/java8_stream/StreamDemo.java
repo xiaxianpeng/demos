@@ -219,5 +219,9 @@ public class StreamDemo {
                 .collect(maxBy(dishCaloriedComparator));
         System.out.println("mostCalorieDish "+mostCalorieDish.toString());
 
+        int totalCalories = menu.stream()
+                .collect(Collectors.summingInt(Dish::getCalories));
+        System.out.println("totalCalories: "+totalCalories);
+
     }
 }
