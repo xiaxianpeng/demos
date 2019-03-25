@@ -214,14 +214,18 @@ public class StreamDemo {
         long howManyDishes1 = menu.stream().count();
         System.out.println("howManyDishes " + howManyDishes1);
 
-        Comparator<Dish>  dishCaloriedComparator = Comparator.comparingInt(Dish::getCalories);
-        Optional<Dish>  mostCalorieDish = menu.stream()
+        Comparator<Dish> dishCaloriedComparator = Comparator.comparingInt(Dish::getCalories);
+        Optional<Dish> mostCalorieDish = menu.stream()
                 .collect(maxBy(dishCaloriedComparator));
-        System.out.println("mostCalorieDish "+mostCalorieDish.toString());
+        System.out.println("mostCalorieDish " + mostCalorieDish.toString());
 
         int totalCalories = menu.stream()
                 .collect(Collectors.summingInt(Dish::getCalories));
-        System.out.println("totalCalories: "+totalCalories);
+        System.out.println("totalCalories: " + totalCalories);
+
+        Double avgCalories = menu.stream()
+                .collect(Collectors.averagingInt(Dish::getCalories));
+        System.out.println("avgCalories " + avgCalories);
 
     }
 }
