@@ -7,10 +7,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -226,6 +223,10 @@ public class StreamDemo {
         Double avgCalories = menu.stream()
                 .collect(Collectors.averagingInt(Dish::getCalories));
         System.out.println("avgCalories " + avgCalories);
+
+        IntSummaryStatistics summaryStatistics = menu.stream()
+                .collect(Collectors.summarizingInt(Dish::getCalories));
+        System.out.println(summaryStatistics);
 
     }
 }
