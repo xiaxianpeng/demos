@@ -5,14 +5,13 @@ import java8_stream.bean.Dish;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.*;
 import static java.util.stream.Collectors.toList;
 
 public class StreamDemo {
@@ -137,8 +136,7 @@ public class StreamDemo {
         Long count = menu.stream().count();
         System.out.println("count" + count);
 
-        int sum3 = someNumbers.parallelStream().reduce(0, Integer::sum);
-        System.out.println("sum " + sum2);
+
 
         int calories = menu.stream()
                 .mapToInt(Dish::getCalories)
@@ -231,5 +229,7 @@ public class StreamDemo {
         String shortMenu = menu.stream().map(Dish::getName).collect(Collectors.joining(", "));
         System.out.println(shortMenu);
 
+        int sum4 = someNumbers.parallelStream().reduce(0,Integer::sum);
+        System.out.println("sum2 " +sum4);
     }
 }
