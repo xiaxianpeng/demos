@@ -102,11 +102,11 @@ public class StreamDemo {
     isHealthy = menu.stream().noneMatch(dish -> dish.getCalories() >= 1000);
     System.out.println(isHealthy);
 
-    Optional<Dish> dish = menu
+    Optional<Dish> vegetarianDish = menu
         .stream()
         .filter(Dish::isVegetarian)
         .findAny();
-    System.out.println(dish);
+    System.out.println(vegetarianDish);
 
     menu.stream()
         .filter(Dish::isVegetarian)
@@ -242,16 +242,31 @@ public class StreamDemo {
 
     Map<Dish.CaloricLevel, List<Dish>> dishesByCaloricLevel = menu.stream()
         .collect(groupingBy(dishx -> {
-          if(dishx.getCalories()<=400){
+          if (dishx.getCalories() <= 400) {
             return CaloricLevel.DIET;
-          }else if(dishx.getCalories()<=700){
+          } else if (dishx.getCalories() <= 700) {
             return CaloricLevel.NORMAL;
-          }else {
+          } else {
             return CaloricLevel.FAT;
           }
         }));
-    dishesByCaloricLevel.forEach((key,value)->{
-      System.out.println("CaloricLevel : "+key+" dishes: "+value);
+    dishesByCaloricLevel.forEach((key, value) -> {
+      System.out.println("CaloricLevel : " + key + " dishes: " + value);
+    });
+
+    Map<Dish.Type, Map<Dish.CaloricLevel, List<Dish>>> dishesByTypeCaloricLevel = menu.stream()
+        .collect(groupingBy(Dish::getType, groupingBy(dish -> {
+          if (dish.getCalories() <= 400) {
+            return CaloricLevel.DIET;
+          } else if (dish.getCalories() <= 700) {
+            return CaloricLevel.NORMAL;
+          } else {
+            return CaloricLevel.FAT;
+          }
+        })));
+
+    dishesByTypeCaloricLevel.forEach((key,value)->{
+      System.out.println("type : "+value.toString());
     });
   }
 }
