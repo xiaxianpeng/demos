@@ -42,4 +42,8 @@ public class Dish {
     public String toString() {
         return  name ;
     }
+
+    public enum CaloricLevel{
+        DIET,NORMAL,FAT
+    }
 }

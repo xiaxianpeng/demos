@@ -10,6 +10,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java8_stream.bean.Dish.CaloricLevel;
+import javax.swing.event.ListDataEvent;
 import javax.swing.text.html.Option;
 
 import static java.util.stream.Collectors.*;
@@ -233,8 +235,23 @@ public class StreamDemo {
 
     System.out.println(maxCaloriesDish);
 
-    Map<Dish.Type,List<Dish>> dishedByType  = menu.stream()
+    Map<Dish.Type, List<Dish>> dishedByType = menu.stream()
         .collect(groupingBy(Dish::getType));
-    dishedByType.forEach((key,value)->System.out.println("type: "+key+" value:"+value.toString()));
+    dishedByType
+        .forEach((key, value) -> System.out.println("type: " + key + " value:" + value.toString()));
+
+    Map<Dish.CaloricLevel, List<Dish>> dishesByCaloricLevel = menu.stream()
+        .collect(groupingBy(dishx -> {
+          if(dishx.getCalories()<=400){
+            return CaloricLevel.DIET;
+          }else if(dishx.getCalories()<=700){
+            return CaloricLevel.NORMAL;
+          }else {
+            return CaloricLevel.FAT;
+          }
+        }));
+    dishesByCaloricLevel.forEach((key,value)->{
+      System.out.println("CaloricLevel : "+key+" dishes: "+value);
+    });
   }
 }
