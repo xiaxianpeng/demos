@@ -273,8 +273,10 @@ public class StreamDemo {
         .collect(groupingBy(Dish::getType, counting()));
     System.out.println(typesCount);
 
-    Map<Dish.Type, Optional<Dish>> mostCaloricByType = menu.stream()
-        .collect(groupingBy(Dish::getType, maxBy(Comparator.comparing(Dish::getCalories))));
+    Map<Dish.Type, Dish> mostCaloricByType = menu.stream()
+        // .collect(groupingBy(Dish::getType, maxBy(Comparator.comparing(Dish::getCalories))));
+        .collect(groupingBy(Dish::getType,
+            collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)), Optional::get)));
     System.out.println(mostCaloricByType);
   }
 }
