@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import javax.swing.text.html.Option;
 
 import static java.util.stream.Collectors.*;
 import static java.util.stream.Collectors.toList;
@@ -223,5 +224,14 @@ public class StreamDemo {
 
     int sum4 = someNumbers.parallelStream().reduce(0, Integer::sum);
     System.out.println("sum2 " + sum4);
+
+    int totalCalories2 = menu.stream()
+        .collect(reducing(0, Dish::getCalories, (i, j) -> i + j));
+    System.out.println("totalCalories2 = " + totalCalories2);
+    Optional<Dish> maxCaloriesDish = menu.stream()
+        .collect(reducing((t1, t2) -> t1.getCalories() > t2.getCalories() ? t1 : t2));
+
+    System.out.println(maxCaloriesDish);
+
   }
 }
