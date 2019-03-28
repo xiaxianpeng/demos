@@ -233,5 +233,8 @@ public class StreamDemo {
 
     System.out.println(maxCaloriesDish);
 
+    Map<Dish.Type,List<Dish>> dishedByType  = menu.stream()
+        .collect(groupingBy(Dish::getType));
+    dishedByType.forEach((key,value)->System.out.println("type: "+key+" value:"+value.toString()));
   }
 }
