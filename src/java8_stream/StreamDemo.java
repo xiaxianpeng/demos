@@ -265,8 +265,16 @@ public class StreamDemo {
           }
         })));
 
-    dishesByTypeCaloricLevel.forEach((key,value)->{
-      System.out.println("type : "+value.toString());
+    dishesByTypeCaloricLevel.forEach((key, value) -> {
+      System.out.println("type : " + value.toString());
     });
+
+    Map<Dish.Type, Long> typesCount = menu.stream()
+        .collect(groupingBy(Dish::getType, counting()));
+    System.out.println(typesCount);
+
+    Map<Dish.Type, Optional<Dish>> mostCaloricByType = menu.stream()
+        .collect(groupingBy(Dish::getType, maxBy(Comparator.comparing(Dish::getCalories))));
+    System.out.println(mostCaloricByType);
   }
 }
