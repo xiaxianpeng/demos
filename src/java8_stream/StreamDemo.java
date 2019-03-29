@@ -278,5 +278,22 @@ public class StreamDemo {
         .collect(groupingBy(Dish::getType,
             collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)), Optional::get)));
     System.out.println(mostCaloricByType);
+
+    Map<Dish.Type, Integer> totalCaloriesByType = menu.stream()
+        .collect(groupingBy(Dish::getType, summingInt(Dish::getCalories)));
+    System.out.println(totalCaloriesByType);
+
+    Map<Dish.Type, Set<CaloricLevel>> caloricLevelsByType = menu.stream()
+        .collect(groupingBy(Dish::getType, mapping(dish ->
+        {
+          if (dish.getCalories() <= 400) {
+            return CaloricLevel.DIET;
+          } else if (dish.getCalories() < 700) {
+            return CaloricLevel.NORMAL;
+          } else {
+            return CaloricLevel.FAT;
+          }
+        }, toSet())));
+    System.out.println(caloricLevelsByType);
   }
 }
