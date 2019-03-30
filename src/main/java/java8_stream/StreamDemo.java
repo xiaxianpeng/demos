@@ -328,5 +328,18 @@ public class StreamDemo {
         Map<Boolean, List<Dish>> partitionedMenu = menu.stream()
             .collect(partitioningBy(Dish::isVegetarian));
         System.out.println(partitionedMenu);
+
+        Map<Boolean, Map<Dish.Type, List<Dish>>> vegetarianDishesByType =
+            menu.stream()
+                .collect(
+                    partitioningBy(Dish::isVegetarian, groupingBy(Dish::getType, toList()))
+                );
+        System.out.println(vegetarianDishesByType);
+
+        Map<Boolean, Dish> mostCaloricPartitionedByVegetarian = menu.stream()
+            .collect(partitioningBy(Dish::isVegetarian, collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)), Optional::get)));
+        System.out.println(mostCaloricPartitionedByVegetarian);
+
+
     }
 }
