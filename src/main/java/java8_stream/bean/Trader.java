@@ -1,6 +1,7 @@
 package java8_stream.bean;
 
 public class Trader {
+
     private final String name;
     private final String city;
 
@@ -20,8 +21,8 @@ public class Trader {
     @Override
     public String toString() {
         return "Trader{" +
-                "name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+            "name='" + name + '\'' +
+            ", city='" + city + '\'' +
+            '}';
     }
 }

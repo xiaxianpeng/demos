@@ -1,6 +1,7 @@
 package java8_stream.bean;
 
 public class Transaction {
+
     private final Trader trader;
     private final int year;
     private final int value;
@@ -26,9 +27,9 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "trader=" + trader +
-                ", year=" + year +
-                ", value=" + value +
-                '}';
+            "trader=" + trader +
+            ", year=" + year +
+            ", value=" + value +
+            '}';
     }
 }

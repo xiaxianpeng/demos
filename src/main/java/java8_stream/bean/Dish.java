@@ -2,9 +2,10 @@ package java8_stream.bean;
 
 
 public class Dish {
-    private  final String name;
-    private final boolean  vegetarian;
-    private final  int calories;
+
+    private final String name;
+    private final boolean vegetarian;
+    private final int calories;
     private Type type;
 
     public Dish(String name, boolean vegetarian, int calories, Type type) {
@@ -35,15 +36,15 @@ public class Dish {
     }
 
     public enum Type {
-        MEAT,FISH,OTHER
+        MEAT, FISH, OTHER
     }
 
     @Override
     public String toString() {
-        return  name ;
+        return name;
     }
 
-    public enum CaloricLevel{
-        DIET,NORMAL,FAT
+    public enum CaloricLevel {
+        DIET, NORMAL, FAT
     }
 }
