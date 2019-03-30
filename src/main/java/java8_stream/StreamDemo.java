@@ -1,21 +1,33 @@
 package java8_stream;
 
-import java8_stream.bean.Dish;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.reducing;
+import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java8_stream.bean.Dish;
 import java8_stream.bean.Dish.CaloricLevel;
-import javax.swing.event.ListDataEvent;
-import javax.swing.text.html.Option;
-
-import static java.util.stream.Collectors.*;
-import static java.util.stream.Collectors.toList;
 
 public class StreamDemo {
 
@@ -296,5 +308,20 @@ public class StreamDemo {
             }, toSet())));
         System.out.println(caloricLevelsByType);
 
+        Map<Dish.Type, Set<CaloricLevel>> caloricLevelByType = menu.stream()
+            .collect(
+                groupingBy(
+                    Dish::getType, mapping(dish -> {
+                        if (dish.getCalories() <= 400) {
+                            return CaloricLevel.DIET;
+                        } else if (dish.getCalories() <= 700) {
+                            return CaloricLevel.NORMAL;
+                        } else {
+                            return CaloricLevel.FAT;
+                        }
+                    }, toCollection(HashSet::new))
+                )
+            );
+        System.out.println("caloricLevelByType: " + caloricLevelByType);
     }
 }
