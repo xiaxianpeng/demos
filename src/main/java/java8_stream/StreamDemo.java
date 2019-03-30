@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toCollection;
@@ -323,5 +324,9 @@ public class StreamDemo {
                 )
             );
         System.out.println("caloricLevelByType: " + caloricLevelByType);
+
+        Map<Boolean, List<Dish>> partitionedMenu = menu.stream()
+            .collect(partitioningBy(Dish::isVegetarian));
+        System.out.println(partitionedMenu);
     }
 }
