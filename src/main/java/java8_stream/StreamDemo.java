@@ -354,4 +354,5 @@ public class StreamDemo {
         return IntStream.rangeClosed(2, n).boxed()
             .collect(partitioningBy(candidate -> isPrime(candidate)));
     }
+
 }
