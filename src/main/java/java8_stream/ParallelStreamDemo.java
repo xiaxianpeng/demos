@@ -1,6 +1,7 @@
 package java8_stream;
 
 import java.util.function.Function;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
@@ -15,6 +16,8 @@ public class ParallelStreamDemo {
         System.out.println(measureSumPerf(ParallelStreamDemo::iteraativeSum, 10000000));
         System.out.println(measureSumPerf(ParallelStreamDemo::sequentialSum, 10000000));
         System.out.println(measureSumPerf(ParallelStreamDemo::parallelSum, 10000000));
+        System.out.println(measureSumPerf(ParallelStreamDemo::rangedSum, 10000000));
+        System.out.println(measureSumPerf(ParallelStreamDemo::parallelRangeSum,10000000));
     }
 
     public static long sequentialSum(long n) {
@@ -36,6 +39,17 @@ public class ParallelStreamDemo {
             .limit(n)
             .parallel()
             .reduce(0L, Long::sum);
+    }
+
+    public static long rangedSum(long n) {
+        return LongStream.rangeClosed(1, n)
+            .reduce(0L, Long::sum);
+    }
+
+    public static long parallelRangeSum(long n) {
+        return LongStream.rangeClosed(1,n)
+            .parallel()
+            .reduce(0L,Long::sum);
     }
 
     public static long measureSumPerf(Function<Long, Long> addr, long n) {
