@@ -1,4 +1,4 @@
-package java8_stream;
+package streamDemo;
 
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.counting;
@@ -27,8 +27,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import java8_stream.bean.Dish;
-import java8_stream.bean.Dish.CaloricLevel;
+import streamDemo.bean.Dish;
+import streamDemo.bean.Dish.CaloricLevel;
 
 public class StreamDemo {
 
@@ -186,7 +186,7 @@ public class StreamDemo {
 
         long uniqueWord = 0;
         try (Stream<String> lines = Files
-            .lines(Paths.get("src/java8_stream/TraderTest.java"), Charset.defaultCharset())) {
+            .lines(Paths.get("src/streamDemo/TraderTest.java"), Charset.defaultCharset())) {
             uniqueWord = lines.flatMap(line -> Arrays.stream(line.split("")))
                 .distinct()
                 .count();

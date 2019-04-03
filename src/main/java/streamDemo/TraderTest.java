@@ -1,7 +1,7 @@
-package java8_stream;
+package streamDemo;
 
-import java8_stream.bean.Trader;
-import java8_stream.bean.Transaction;
+import streamDemo.bean.Trader;
+import streamDemo.bean.Transaction;
 
 import java.util.*;
 import java.util.stream.Collectors;

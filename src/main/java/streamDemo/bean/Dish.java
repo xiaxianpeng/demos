@@ -1,4 +1,4 @@
-package java8_stream.bean;
+package streamDemo.bean;
 
 
 public class Dish {

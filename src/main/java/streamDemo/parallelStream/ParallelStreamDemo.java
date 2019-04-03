@@ -1,4 +1,4 @@
-package java8_stream;
+package streamDemo.parallelStream;
 
 import java.util.function.Function;
 import java.util.stream.LongStream;

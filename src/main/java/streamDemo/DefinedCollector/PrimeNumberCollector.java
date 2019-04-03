@@ -1,4 +1,4 @@
-package java8_stream.DefinedCollector;
+package streamDemo.DefinedCollector;
 
 import static java.util.stream.Collector.Characteristics.IDENTITY_FINISH;
 

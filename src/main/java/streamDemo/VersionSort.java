@@ -1,4 +1,4 @@
-package java8_stream;
+package streamDemo;
 
 import java.util.ArrayList;
 import java.util.Comparator;
