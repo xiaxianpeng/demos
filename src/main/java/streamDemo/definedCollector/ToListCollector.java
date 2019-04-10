@@ -1,4 +1,4 @@
-package streamDemo.DefinedCollector;
+package streamDemo.definedCollector;
 
 import static java.util.stream.Collector.Characteristics.CONCURRENT;
 import static java.util.stream.Collector.Characteristics.IDENTITY_FINISH;
