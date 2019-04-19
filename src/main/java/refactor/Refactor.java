@@ -7,6 +7,8 @@ import java.io.IOException;
 /**
  * Created by xianpeng.xia
  * on 2019-04-18 08:47
+ *
+ * 使用 lambda表达式 进行重构
  */
 public class Refactor {
 
