@@ -1,4 +1,4 @@
-package refactor.ObserverPattern;
+package refactor.observerPattern;
 
 import java.util.ArrayList;
 import java.util.List;

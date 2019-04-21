@@ -1,4 +1,4 @@
-package refactor.ObserverPattern;
+package refactor.observerPattern;
 
 /**
  * Created by xianpeng.xia
