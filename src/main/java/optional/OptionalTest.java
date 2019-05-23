@@ -8,15 +8,31 @@ import java.util.Optional;
  */
 public class OptionalTest {
 
-    Optional<Car> optCar = Optional.empty();
+    public static void main(String[] args) {
+        Optional<Car> optCar = Optional.empty();
 
-    //Optional<Car> optionalCar = Optional.of(car);
+        //Optional<Car> optionalCar = Optional.of(car);
 
-    //Optional<Car> emptyCar = Optional.ofNullable(car);
+        //Optional<Car> emptyCar = Optional.ofNullable(car);
 
-    Insurance insurance = new Insurance();
+        Insurance insurance = new Insurance();
 
-    Optional<Insurance> optionalInsurance = Optional.ofNullable(insurance);
-    Optional<String> name = optionalInsurance.map(Insurance::getName);
+        Optional<Insurance> optionalInsurance = Optional.ofNullable(insurance);
+        Optional<String> name = optionalInsurance.map(Insurance::getName);
+
+        System.out.println("name : " + name);
+
+        Optional<Person> optionalPerson = Optional.empty();
+        String name1 = getCarInsuranceName(optionalPerson);
+
+        System.out.println("name : " + name1);
+    }
+
+    public static String getCarInsuranceName(Optional<Person> person) {
+        return person.flatMap(Person::getCar)
+            .flatMap(Car::getInsurance)
+            .map(Insurance::getName)
+            .orElse("unknown");
+    }
 
 }
