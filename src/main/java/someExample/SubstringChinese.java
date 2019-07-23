@@ -10,8 +10,8 @@ public class SubstringChinese {
         String str = "我ABC汉";
         int num = trimGBK(str.getBytes(), 5);
         System.out.println(str.substring(0, num));
-        str="abcdef";
-        System.out.println(str.substring(0,6));
+        str = "abcdef";
+        System.out.println(str.substring(0, 6));
     }
 
     public static int trimGBK(byte[] buf, int n) {

@@ -6,7 +6,7 @@ package someExample;
  */
 public class RenMinBi {
 
-    private static final char[] data = new char[]{'零','一', '二', '三', '四', '五', '六', '七', '八', '九'};
+    private static final char[] data = new char[]{'零', '一', '二', '三', '四', '五', '六', '七', '八', '九'};
     private static final char[] units = new char[]{'元', '拾', '百', '千', '万', '拾', '百', '千', '亿'};
 
     public static void main(String[] args) {

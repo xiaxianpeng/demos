@@ -22,8 +22,8 @@ public class WordCounterDemo {
         System.out.println("Found " + countWords(stream.parallel()) + " words ");
 
         Spliterator<Character> spliterator = new WordCounterSpliterator(SENTENCE);
-        Stream<Character> stream1 = StreamSupport.stream(spliterator,true);
-        System.out.println("found " + countWords(stream1)+" worlds ");
+        Stream<Character> stream1 = StreamSupport.stream(spliterator, true);
+        System.out.println("found " + countWords(stream1) + " worlds ");
     }
 
     private static int countWords(Stream<Character> stream) {

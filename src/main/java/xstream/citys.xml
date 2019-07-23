@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys c1="0">
+  <city cityId="101280101" cityName="广州" cityCode="guangzhou" province="广东"/>
+  <city cityId="101280102" cityName="番禺" cityCode="panyu" province="广东"/>
+  <city cityId="101280103" cityName="从化" cityCode="conghua" province="广东"/>
+</citys>

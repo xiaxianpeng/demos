@@ -6,9 +6,10 @@ package someExample;
  */
 public class Child extends Parent {
 
-    public Child(){
+    public Child() {
         super(3);
     }
+
     public int compareTo(Object o) {
 
         // TODO Auto-generated method stub
@@ -17,8 +18,9 @@ public class Child extends Parent {
         return 1;
 
     }
+
     @Override
     public String toString() {
-        return "child age = "+getAge();
+        return "child age = " + getAge();
     }
 }
