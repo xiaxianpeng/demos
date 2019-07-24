@@ -13,13 +13,13 @@ import java.io.Writer;
  */
 public class XstreamUtil {
 
-    public static Object xmlToBean(Class<?> clazz, String xmlPath) {
-        Object xmlObject = null;
+    public static <T> T xmlToBean(Class<T> clazz, String xmlPath) {
+        T xmlObject = null;
         XStream xStream = new XStream();
         xStream.processAnnotations(clazz);
         xStream.autodetectAnnotations(true);
         File file = new File(xmlPath);
-        xmlObject = xStream.fromXML(file);
+        xmlObject = (T) xStream.fromXML(file);
         System.out.println("xml obj : " + xmlObject);
         return xmlObject;
     }
@@ -32,7 +32,8 @@ public class XstreamUtil {
     }
 
     public static void main(String[] args) throws IOException {
-        Object obj = xmlToBean(CityList.class, "src/main/java/xstream/citys.xml");
-        beanToXml(obj);
+        CityList cityList = xmlToBean(CityList.class, "src/main/java/xstream/citys.xml");
+        System.out.println();
+        //beanToXml(obj);
     }
 }
