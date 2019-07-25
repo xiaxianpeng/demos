@@ -1,0 +1,4 @@
+<tournament id="sr:tournament:20" name="挪威足球超级联赛">
+  <sport id="sr:sport:1" name="足球"/>
+  <category id="sr:category:5" name="挪威" country_code="NOR"/>
+</tournament>

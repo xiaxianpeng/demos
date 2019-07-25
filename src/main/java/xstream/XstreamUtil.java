@@ -1,6 +1,9 @@
 package xstream;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.naming.NoNameCoder;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.Xpp3Driver;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,9 +16,11 @@ import java.io.Writer;
  */
 public class XstreamUtil {
 
+    public static String xmlTag = "<?xml version='1.0' encoding='UTF-8'?>\n";
+
     public static <T> T xmlToBean(Class<T> clazz, String xmlPath) {
         T xmlObject = null;
-        XStream xStream = new XStream();
+        XStream xStream = new XStream(new Xpp3Driver(new NoNameCoder()));
         xStream.processAnnotations(clazz);
         xStream.autodetectAnnotations(true);
         File file = new File(xmlPath);
@@ -28,12 +33,24 @@ public class XstreamUtil {
         XStream xStream = new XStream();
         xStream.processAnnotations(obj.getClass());
         Writer writer = new FileWriter("src/main/java/xstream/copyCitys.xml");
+        writer.write(xmlTag);
         xStream.toXML(obj, writer);
+    }
+
+    /**
+     * xml转String
+     */
+    public static String beanToXmlString(Object object) {
+        XStream xStream = new XStream(new DomDriver());
+        xStream.processAnnotations(object.getClass());
+        String xmlString = xStream.toXML(object);
+        return xmlTag + xmlString;
     }
 
     public static void main(String[] args) throws IOException {
         CityList cityList = xmlToBean(CityList.class, "src/main/java/xstream/citys.xml");
         System.out.println();
-        //beanToXml(obj);
+        beanToXml(cityList);
+        //System.out.println(beanToXmlString(cityList));
     }
 }
