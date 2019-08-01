@@ -17,8 +17,70 @@ public class SortTwoArray {
     private static int[] out = new int[]{1, 2, 2, 3, 5, 6};
 
     public static void main(String[] args) {
+        merge(num1, m, num2, n);
+        method2(num1, m, num2, n);
 
+        method1(num1, m, num2, n);
     }
 
+    /**
+     * 双指针，从前到后
+     */
+    private static int[] method1(int[] num1, int m, int[] num2, int n) {
+        int[] num1_copy = new int[m];
+        System.arraycopy(num1, 0, num1_copy, 0, m);
+        int p1 = 0;
+        int p2 = 0;
+        int p = 0;
+        while ((p1 < m) && (p2 < n)) {
+            num1[p++] = (num1_copy[p1] < num2[p2]) ? num1_copy[p1++] : num2[p2++];
+        }
+        if (p1 < m) {
+            System.arraycopy(num1_copy, p1, num1, p1 + p2, m + n - p1 - p2);
+        }
+        if (p2 < n) {
+            System.arraycopy(num2, p2, num1, p1 + p2, m + n - p1 - p2);
+        }
+        for (int i = 0; i < num1.length; i++) {
+            System.out.println(num1[i]);
+        }
+        return num1;
+    }
+
+    /**
+     * 双指针，从后到前
+     */
+    private static int[] method2(int[] num1, int m, int[] num2, int n) {
+        int p1 = m - 1;
+        int p2 = n - 1;
+        int p = m + n - 1;
+        while ((p1 >= 0) && (p2 >= 0)) {
+            num1[p--] = (num1[p1] < num2[p2]) ? num2[p2--] : num1[p1 - 1];
+        }
+        System.arraycopy(num2, 0, num1, 0, p2 + 1);
+        for (int i = 0; i < num1.length; i++) {
+            System.out.println(num1[i]);
+        }
+        return num1;
+    }
+
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        // two get pointers for nums1 and nums2
+        int p1 = m - 1;
+        int p2 = n - 1;
+        // set pointer for nums1
+        int p = m + n - 1;
+
+        // while there are still elements to compare
+        while ((p1 >= 0) && (p2 >= 0))
+        // compare two elements from nums1 and nums2
+        // and add the largest one in nums1
+        {
+            nums1[p--] = (nums1[p1] < nums2[p2]) ? nums2[p2--] : nums1[p1--];
+        }
+
+        // add missing elements from nums2
+        System.arraycopy(nums2, 0, nums1, 0, p2 + 1);
+    }
 
 }
