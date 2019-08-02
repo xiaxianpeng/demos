@@ -17,9 +17,7 @@ public class SortTwoArray {
     private static int[] out = new int[]{1, 2, 2, 3, 5, 6};
 
     public static void main(String[] args) {
-        merge(num1, m, num2, n);
         method2(num1, m, num2, n);
-
         method1(num1, m, num2, n);
     }
 
