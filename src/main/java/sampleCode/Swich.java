@@ -17,7 +17,7 @@ public class Swich {
                 System.out.println("it is a");
                 break;
             case "null":
-                System.out.println("it is a");
+                System.out.println("it is null");
                 break;
             default:
                 System.out.println("default");
