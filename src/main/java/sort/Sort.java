@@ -90,6 +90,33 @@ public class Sort {
         }
     }
 
+    void shellSort(int[] array) {
+        /*
+        1 选择一个增量序列 t1,t2,t3...tk ,其中ti>tj,tk=1;
+        2 按赠量序列个数k，对序列进行k趟排序
+        3 每趟排序，根据对应的增量ti，将待排序列分割成若干长度m的自序列，
+        4 分别对各子表进行直接插入排序，仅增量因子为1时，整个序列当成一个表来处理，表长度即为整个序列的长度
+         */
+        int gap = 1;
+        while (gap < array.length) {
+            gap = gap * 3 + 1;
+        }
+        System.out.println("gap: " + gap);
+
+        while (gap > 0) {
+            for (int i = gap; i < array.length; i++) {
+                int temp = array[i];
+                int j = i - gap;
+                while (j >= 0 && array[j] > temp) {
+                    array[j + gap] = array[j];
+                    j -= gap;
+                }
+                array[j + gap] = temp;
+            }
+            gap = (int) Math.floor(gap / 3);
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = new int[]{5, 1, 3, 3, 55, 45, 33, 12, 76, 11, 56, 57, 15};
         Sort sort = new Sort();
@@ -101,7 +128,9 @@ public class Sort {
         // 选择排序
         //  sort.selection(array);
         //  插入排序
-        sort.insertionSort(array);
+        // sort.insertionSort(array);
+        // 希尔排序
+        sort.shellSort(array);
         sort.display(array);
     }
 }
