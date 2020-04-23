@@ -70,6 +70,26 @@ public class Sort {
 
     }
 
+    void insertionSort(int[] array) {
+        /* 1 从第一个元素开始，该元素可以认为已经被排序
+           2 取出下一个元素，在已排序的元素序列中从后扫描
+           3 如果该元素(已排序）大于新元素，则将该元素移到下一位置
+           4 重复步骤3，直到找到已排序的元素小于等于新元素的位置
+           5 将新元素插入到该位置后
+           6 重复2-5
+         */
+        int i, j, key;
+        for (i = 1; i < array.length; i++) {
+            key = array[i];
+            j = i - 1;
+            while (j >= 0 && (array[j] > key)) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = new int[]{5, 1, 3, 3, 55, 45, 33, 12, 76, 11, 56, 57, 15};
         Sort sort = new Sort();
@@ -78,7 +98,10 @@ public class Sort {
         //// sort.bubbleSort(array);
         // 改进后的冒泡排序
         //// sort.bubbleSortImproved(array);
-        sort.selection(array);
+        // 选择排序
+        //  sort.selection(array);
+        //  插入排序
+        sort.insertionSort(array);
         sort.display(array);
     }
 }
