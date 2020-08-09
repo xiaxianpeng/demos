@@ -26,6 +26,11 @@ public class OptionalTest {
         String name1 = getCarInsuranceName(optionalPerson);
 
         System.out.println("name : " + name1);
+
+        // 找出最便宜的保险公司
+        Optional<Car> optionalCar = Optional.empty();
+        Optional<Insurance> CheapestInsurance = nullSafeFindCheapestInsurance(optionalPerson, optionalCar);
+        System.out.println("CheapestInsurance " + CheapestInsurance);
     }
 
     public static String getCarInsuranceName(Optional<Person> person) {
@@ -35,4 +40,12 @@ public class OptionalTest {
             .orElse("unknown");
     }
 
+    public static Optional<Insurance> nullSafeFindCheapestInsurance(Optional<Person> person, Optional<Car> car) {
+        return person.flatMap(p -> car.map(c -> findCheapestInsurance(p, c)));
+    }
+
+    public static Insurance findCheapestInsurance(Person person, Car car) {
+        // TODO ...
+        return new Insurance();
+    }
 }
