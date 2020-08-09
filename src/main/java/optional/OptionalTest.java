@@ -1,6 +1,7 @@
 package optional;
 
 import java.util.Optional;
+import java.util.Properties;
 
 /**
  * Created by xianpeng.xia
@@ -35,6 +36,15 @@ public class OptionalTest {
         // 找出名字为A的保险公司
         optionalInsurance.filter(insurance1 -> "A".equals(insurance.getName()))
             .ifPresent(x -> System.out.println("Exist"));
+
+        //
+        Properties properties = new Properties();
+        properties.setProperty("a", "5");
+        properties.setProperty("b", "true");
+        properties.setProperty("c", "-3");
+
+        int duration = readDuration(properties, "c");
+        System.out.println("时长： " + duration);
     }
 
     public static String getCarInsuranceName(Optional<Person> person) {
@@ -51,5 +61,20 @@ public class OptionalTest {
     public static Insurance findCheapestInsurance(Person person, Car car) {
         // TODO ...
         return new Insurance();
+    }
+
+    public static int readDuration(Properties properties, String name) {
+        return Optional.ofNullable(properties.getProperty(name))
+            .flatMap(s -> stringToInt(s))
+            .filter(i -> i > 0)
+            .orElse(0);
+    }
+
+    public static Optional<Integer> stringToInt(String s) {
+        try {
+            return Optional.of(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
+            return Optional.empty();
+        }
     }
 }
