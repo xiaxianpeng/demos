@@ -31,6 +31,10 @@ public class OptionalTest {
         Optional<Car> optionalCar = Optional.empty();
         Optional<Insurance> CheapestInsurance = nullSafeFindCheapestInsurance(optionalPerson, optionalCar);
         System.out.println("CheapestInsurance " + CheapestInsurance);
+
+        // 找出名字为A的保险公司
+        optionalInsurance.filter(insurance1 -> "A".equals(insurance.getName()))
+            .ifPresent(x -> System.out.println("Exist"));
     }
 
     public static String getCarInsuranceName(Optional<Person> person) {
