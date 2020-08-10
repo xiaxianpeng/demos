@@ -11,7 +11,8 @@ import java.util.concurrent.Future;
 public class Shop {
 
     public Future<Double> getPriceAsync(String product) {
-        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
+       /*
+       CompletableFuture<Double> futurePrice = new CompletableFuture<>();
 
         new Thread(() -> {
             try {
@@ -23,6 +24,9 @@ public class Shop {
         }).start();
 
         return futurePrice;
+        */
+
+        return CompletableFuture.supplyAsync(() -> calculatePrice(product));
     }
 
     public double getPrice(String product) {
