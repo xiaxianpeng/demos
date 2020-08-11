@@ -10,6 +10,15 @@ import java.util.concurrent.Future;
  */
 public class Shop {
 
+    private String name;
+
+    public Shop() {
+    }
+
+    public Shop(String name) {
+        this.name = name;
+    }
+
     public Future<Double> getPriceAsync(String product) {
        /*
        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
@@ -45,5 +54,13 @@ public class Shop {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
