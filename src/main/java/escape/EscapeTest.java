@@ -34,4 +34,18 @@ public class EscapeTest {
             System.out.println(escapeTest.getClass().getName());
         }
     }
+
+    public static class SomeTest {
+        int id;
+        int age;
+    }
+
+    public void someTest() {
+        SomeTest someTest = new SomeTest();
+        someTest.id = 1;
+        someTest.age = 1;
+        // 开启标量替换后
+        int id = 1;
+        int age = 1;
+    }
 }
