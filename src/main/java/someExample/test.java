@@ -16,6 +16,7 @@ public class test {
         set.add(new Parent(4));
         System.out.println(set.toString());
         System.out.println(set.size());
+        System.out.println(set.size());
     }
 
 }
